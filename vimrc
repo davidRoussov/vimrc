@@ -7,16 +7,15 @@ set autoindent
 set cindent
 set smartindent
 set foldmethod=indent
+set hidden
 
 call plug#begin()
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'leafoftree/vim-vue-plugin'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'vim-scripts/groovy.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
@@ -25,8 +24,8 @@ call plug#end()
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 autocmd BufRead * normal! zR
 
-nnoremap Q <nop>
-nnoremap K <nop>
+command! -bar -bang Q quit!
+cabbrev q quit!
 
 let g:netrw_localrmdir="rm -rf"
 let g:vim_vue_plugin_use_typescript="1"
